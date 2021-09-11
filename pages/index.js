@@ -1,7 +1,8 @@
+import { useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import useSWR from "swr";
 import useSWRInfinite from "swr/infinite";
-import { useState } from "react";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -40,7 +41,11 @@ export default function Home() {
                 <td>{user.name.first}</td>
                 <td>{user.gender}</td>
                 <td>{user.dob.date}</td>
-                <td>visualizar</td>
+                <td>
+                  <Link href="/user/[userId]" as={`/user/${user.login.uuid}`}>
+                    <a>visualizar</a>
+                  </Link>
+                </td>
               </tr>
             );
           })}
