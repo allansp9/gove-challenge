@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,9 +12,15 @@ Modal.setAppElement("#__next");
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const UserPage = () => {
+  const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
 
   const userId = router.query.userId;
+
+  function handleCloseModal() {
+    setIsOpen(false);
+    router.push("/");
+  }
 
   const { data, size, setSize } = useSWRInfinite(
     (index) =>
@@ -39,9 +45,10 @@ const UserPage = () => {
   return (
     <>
       <Modal
-        isOpen={true}
+        isOpen={isOpen}
         onRequestClose={() => router.push("/")}
         contentLabel="User details modal"
+        shouldReturnFocusAfterClose={true}
       >
         {user && (
           <div>
@@ -66,6 +73,8 @@ const UserPage = () => {
             <p>{user.login.uuid}</p>
 
             <CopyUrlButton url={window.location.href} />
+
+            <button onClick={() => handleCloseModal()}>Close</button>
           </div>
         )}
       </Modal>
