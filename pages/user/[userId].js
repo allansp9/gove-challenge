@@ -19,7 +19,7 @@ const UserPage = () => {
 
   function handleCloseModal() {
     setIsOpen(false);
-    router.push("/");
+    router.push("/", "/", { shallow: true });
   }
 
   const { data, size, setSize } = useSWRInfinite(
@@ -46,7 +46,7 @@ const UserPage = () => {
     <>
       <Modal
         isOpen={isOpen}
-        onRequestClose={() => router.push("/")}
+        onRequestClose={() => router.push("/", "/", { shallow: true })}
         contentLabel="User details modal"
         shouldReturnFocusAfterClose={true}
       >
