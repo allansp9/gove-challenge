@@ -1,6 +1,8 @@
 import { useMemo } from "react";
 import Link from "next/link";
 import { useTable, useSortBy } from "react-table";
+import { format } from "date-fns";
+
 import TableLayout from "./TableLayout";
 
 const TableInstance = ({ tableData }) => {
@@ -17,12 +19,13 @@ const TableInstance = ({ tableData }) => {
       {
         Header: "Birth",
         accessor: "dob.date",
+        Cell: ({ value }) => format(new Date(value), "dd/MM/yyyy"),
       },
       {
         Header: "Action",
         accessor: "login.uuid",
-        Cell: ({ cell }) => (
-          <Link href="/user/[userId]" as={`/user/${cell.value}`}>
+        Cell: ({ value }) => (
+          <Link href="/user/[userId]" as={`/user/${value}`}>
             <a>Visualizar</a>
           </Link>
         ),
