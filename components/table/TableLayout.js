@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalFilter from "./GlobalFilter";
+import { GlobalFilter } from "./TableFilters";
 
 const TableLayout = ({
   footerGroups,
@@ -24,6 +24,7 @@ const TableLayout = ({
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  <div>{column.canFilter ? column.render("Filter") : null}</div>
                   {column.render("Header")}
                   {column.isSorted ? (column.isSortedDesc ? "▼" : "▲") : ""}
                 </th>
