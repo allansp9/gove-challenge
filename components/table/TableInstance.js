@@ -11,15 +11,18 @@ const TableInstance = ({ tableData }) => {
       {
         Header: "Name",
         accessor: "name.first",
+        Footer: "Name",
       },
       {
         Header: "Gender",
         accessor: "gender",
+        Footer: "Gender",
       },
       {
         Header: "Birth",
         accessor: "dob.date",
         Cell: ({ value }) => format(new Date(value), "dd/MM/yyyy"),
+        Footer: "Birth",
       },
       {
         Header: "Action",
@@ -29,6 +32,7 @@ const TableInstance = ({ tableData }) => {
             <a>Visualizar</a>
           </Link>
         ),
+        Footer: "Action",
       },
     ];
     return [columns, tableData];

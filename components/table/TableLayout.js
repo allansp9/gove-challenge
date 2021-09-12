@@ -2,6 +2,7 @@ import React from "react";
 import GlobalFilter from "./GlobalFilter";
 
 const TableLayout = ({
+  footerGroups,
   getTableProps,
   getTableBodyProps,
   headerGroups,
@@ -44,6 +45,15 @@ const TableLayout = ({
             );
           })}
         </tbody>
+        <tfoot className="">
+          {footerGroups.map((group) => (
+            <tr {...group.getFooterGroupProps()}>
+              {group.headers.map((column) => (
+                <td {...column.getFooterProps()}>{column.render("Footer")}</td>
+              ))}
+            </tr>
+          ))}
+        </tfoot>
       </table>
     </>
   );
