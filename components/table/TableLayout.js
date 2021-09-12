@@ -13,7 +13,10 @@ const TableLayout = ({
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                {column.render("Header")}
+                {column.isSorted ? (column.isSortedDesc ? "▼" : "▲") : ""}
+              </th>
             ))}
           </tr>
         ))}

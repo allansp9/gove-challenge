@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import Link from "next/link";
-import { useTable } from "react-table";
+import { useTable, useSortBy } from "react-table";
 import TableLayout from "./TableLayout";
 
 const TableInstance = ({ tableData }) => {
@@ -32,7 +32,7 @@ const TableInstance = ({ tableData }) => {
   }, [tableData]);
   console.log(data);
 
-  const tableInstance = useTable({ columns, data });
+  const tableInstance = useTable({ columns, data }, useSortBy);
 
   return <TableLayout {...tableInstance} />;
 };
