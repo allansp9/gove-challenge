@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import Link from "next/link";
-import { useTable, useSortBy } from "react-table";
+import { useGlobalFilter, useTable, useSortBy } from "react-table";
 import { format } from "date-fns";
 
 import TableLayout from "./TableLayout";
@@ -35,7 +35,7 @@ const TableInstance = ({ tableData }) => {
   }, [tableData]);
   console.log(data);
 
-  const tableInstance = useTable({ columns, data }, useSortBy);
+  const tableInstance = useTable({ columns, data }, useGlobalFilter, useSortBy);
 
   return <TableLayout {...tableInstance} />;
 };
