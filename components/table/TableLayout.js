@@ -1,34 +1,27 @@
 import React from "react";
-import { GlobalFilter, DefaultColumnFilter } from "./TableFilters";
 
 const TableLayout = ({
-  footerGroups,
   getTableProps,
   getTableBodyProps,
   headerGroups,
   rows,
   prepareRow,
   state,
-  setGlobalFilter,
-  preGlobalFilteredRows,
 }) => {
-  const { globalFilter } = state;
   return (
     <>
-      {/* <GlobalFilter
-        preGlobalFilteredRows={preGlobalFilteredRows}
-        globalFilter={globalFilter}
-        setGlobalFilter={setGlobalFilter}
-      /> */}
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+              {headerGroup.headers.map((column, index) => (
+                <th scope="col" key={index}>
+                  <div
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                  >
+                    {column.render("Header")}
+                  </div>
                   <div>{column.canFilter ? column.render("Filter") : null}</div>
-                  {column.render("Header")}
-                  {column.isSorted ? (column.isSortedDesc ? "▼" : "▲") : ""}
                 </th>
               ))}
             </tr>
@@ -48,15 +41,6 @@ const TableLayout = ({
             );
           })}
         </tbody>
-        <tfoot className="">
-          {footerGroups.map((group) => (
-            <tr {...group.getFooterGroupProps()}>
-              {group.headers.map((column) => (
-                <td {...column.getFooterProps()}>{column.render("Footer")}</td>
-              ))}
-            </tr>
-          ))}
-        </tfoot>
       </table>
     </>
   );

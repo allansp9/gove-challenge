@@ -25,10 +25,6 @@ const UserPage = () => {
   const pageIndex = userId - absolutePageIndex;
 
   const userIndex = Math.ceil(userId / pageIndex);
-  // console.log("userId: " + userId);
-  // console.log("page: " + page);
-  // console.log("absolutePageIndex: " + absolutePageIndex);
-  // console.log("pageIndex: " + pageIndex);
 
   const { data } = useSWR(
     `https://randomuser.me/api/?results=50&seed=abc&page=${page}&${
@@ -37,10 +33,6 @@ const UserPage = () => {
     fetcher
   );
 
-  // if (data) {
-  //   console.log(data);
-  // }
-
   useEffect(() => {
     if (data) {
       setUserInfo(data.results[pageIndex - 1]);
@@ -48,8 +40,6 @@ const UserPage = () => {
   }, [data]);
 
   if (!userInfo) return <div>Loading...</div>;
-
-  // console.log(userInfo);
 
   return <UserModal userInfo={userInfo} />;
 };
