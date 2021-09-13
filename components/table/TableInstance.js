@@ -4,7 +4,7 @@ import { useGlobalFilter, useTable, useSortBy, useFilters } from "react-table";
 import { format } from "date-fns";
 
 import TableLayout from "./TableLayout";
-import { SelectColumnFilter } from "./TableFilters";
+import { SelectColumnFilter, DefaultColumnFilter } from "./TableFilters";
 
 const TableInstance = ({ tableData }) => {
   const [columns, data] = useMemo(() => {
@@ -12,7 +12,7 @@ const TableInstance = ({ tableData }) => {
       {
         Header: "Name",
         accessor: "name.first",
-        disableFilters: true,
+        Filter: DefaultColumnFilter,
         Footer: "Name",
       },
       {

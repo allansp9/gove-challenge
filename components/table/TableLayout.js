@@ -1,5 +1,5 @@
 import React from "react";
-import { GlobalFilter } from "./TableFilters";
+import { GlobalFilter, DefaultColumnFilter } from "./TableFilters";
 
 const TableLayout = ({
   footerGroups,
@@ -10,15 +10,16 @@ const TableLayout = ({
   prepareRow,
   state,
   setGlobalFilter,
+  preGlobalFilteredRows,
 }) => {
   const { globalFilter } = state;
-  // console.log(rows);
   return (
     <>
-      <GlobalFilter
+      {/* <GlobalFilter
+        preGlobalFilteredRows={preGlobalFilteredRows}
         globalFilter={globalFilter}
         setGlobalFilter={setGlobalFilter}
-      />
+      /> */}
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
