@@ -12,6 +12,7 @@ const TableLayout = ({
   setGlobalFilter,
 }) => {
   const { globalFilter } = state;
+  // console.log(rows);
   return (
     <>
       <GlobalFilter

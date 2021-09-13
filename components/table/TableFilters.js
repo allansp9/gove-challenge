@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import { useAsyncDebounce } from "react-table";
 
 export function GlobalFilter({ globalFilter, setGlobalFilter }) {
-  const [value, setValue] = useState(globalFilter);
-  const onChange = useAsyncDebounce((value) => {
-    setGlobalFilter(value || undefined);
-  }, 300);
-
   return (
     <input
-      value={value || ""}
+      value={globalFilter || ""}
       onChange={(e) => {
-        setValue(e.target.value);
-        onChange(e.target.value);
+        setGlobalFilter(e.target.value);
       }}
       placeholder="Search..."
       style={{
@@ -26,8 +19,6 @@ export function GlobalFilter({ globalFilter, setGlobalFilter }) {
 export function SelectColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id },
 }) {
-  // Calculate the options for filtering
-  // using the preFilteredRows
   const options = React.useMemo(() => {
     const options = new Set();
     preFilteredRows.forEach((row) => {
@@ -36,7 +27,6 @@ export function SelectColumnFilter({
     return [...options.values()];
   }, [id, preFilteredRows]);
 
-  // Render a multi-select box
   return (
     <select
       value={filterValue}

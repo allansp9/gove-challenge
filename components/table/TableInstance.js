@@ -7,11 +7,12 @@ import TableLayout from "./TableLayout";
 import { SelectColumnFilter } from "./TableFilters";
 
 const TableInstance = ({ tableData }) => {
+  console.log(tableData);
   const [columns, data] = useMemo(() => {
     const columns = [
       {
         Header: "Name",
-        accessor: "name.first",
+        accessor: [tableData.info.page].name.first,
         disableFilters: true,
         Footer: "Name",
       },
@@ -26,7 +27,7 @@ const TableInstance = ({ tableData }) => {
         Header: "Birth",
         accessor: "dob.date",
         disableFilters: true,
-        Cell: ({ value }) => format(new Date(value), "dd/MM/yyyy"),
+        // Cell: ({ value }) => format(new Date(value), "dd/MM/yyyy"),
         Footer: "Birth",
       },
       {
