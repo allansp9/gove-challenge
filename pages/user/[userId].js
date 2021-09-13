@@ -16,28 +16,30 @@ const PAGE_SIZE = 50;
 const UserPage = () => {
   const router = useRouter();
   const userId = router.query.userId;
-  const [userInfo, setUserInfo] = useState(null);
+  const nat = router.query.nat;
 
-  const { natValue } = useContext(UserContext);
+  const [userInfo, setUserInfo] = useState(null);
 
   const page = Math.ceil(userId / PAGE_SIZE);
   const absolutePageIndex = (page - 1) * 50;
   const pageIndex = userId - absolutePageIndex;
 
   const userIndex = Math.ceil(userId / pageIndex);
-  console.log("userId: " + userId);
-  console.log("page: " + page);
-  console.log("absolutePageIndex: " + absolutePageIndex);
-  console.log("pageIndex: " + pageIndex);
+  // console.log("userId: " + userId);
+  // console.log("page: " + page);
+  // console.log("absolutePageIndex: " + absolutePageIndex);
+  // console.log("pageIndex: " + pageIndex);
 
   const { data } = useSWR(
-    `https://randomuser.me/api/?results=${PAGE_SIZE}&seed=abc&page=${page}&nat=${natValue}`,
+    `https://randomuser.me/api/?results=50&seed=abc&page=${page}&${
+      nat && `nat=${nat}`
+    }`,
     fetcher
   );
 
-  if (data) {
-    console.log(data);
-  }
+  // if (data) {
+  //   console.log(data);
+  // }
 
   useEffect(() => {
     if (data) {

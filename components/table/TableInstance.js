@@ -1,18 +1,21 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 import Link from "next/link";
 import { useGlobalFilter, useTable, useSortBy, useFilters } from "react-table";
 import { format } from "date-fns";
 
 import TableLayout from "./TableLayout";
-import { SelectColumnFilter, DefaultColumnFilter } from "./TableFilters";
+import { SelectColumnFilter } from "./TableFilters";
+import { UserContext } from "../../context/userContext";
 
 const TableInstance = ({ tableData }) => {
+  const { natValue } = useContext(UserContext);
+
   const [columns, data] = useMemo(() => {
     const columns = [
       {
         Header: "Name",
         accessor: "name.first",
-        Filter: DefaultColumnFilter,
+        disableFilters: true,
         Footer: "Name",
       },
       {
@@ -31,14 +34,21 @@ const TableInstance = ({ tableData }) => {
       },
       {
         Header: "Action",
-        accessor: "login.uuid",
         disableFilters: true,
         disableSortBy: true,
-        Cell: ({ row }) => (
-          <Link href="/user/[userId]" as={`/user/${row.index + 1}`}>
-            <a>Visualizar</a>
-          </Link>
-        ),
+        Cell: ({ row }) => {
+          // console.log(row);
+          return (
+            <Link
+              href={`/user/[userId]${natValue && `?nat=${row.original.nat}`}`}
+              as={`/user/${row.index + 1}${
+                natValue && `?nat=${row.original.nat}`
+              }`}
+            >
+              <a>Visualizar</a>
+            </Link>
+          );
+        },
         Footer: "Action",
       },
     ];
