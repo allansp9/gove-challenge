@@ -10,23 +10,18 @@ const fetcher = async (url) => {
 };
 
 export const UserProvider = ({ children }) => {
+  const [natValue, setNatValue] = useState("");
+
   const { data, size, setSize } = useSWRInfinite(
     (index) =>
       `https://randomuser.me/api/?results=50&seed=abc&page=${index + 1}`,
     fetcher
   );
 
-  //   const pages = data ? [].concat(...data) : [];
-  let users = [];
-
-  // data?.map((page) => users.push(...page));
-
-  // if (data) {
-  //   console.log(data);
-  // }
-
   return (
-    <UserContext.Provider value={{ data, size, setSize }}>
+    <UserContext.Provider
+      value={{ data, size, setSize, natValue, setNatValue }}
+    >
       {children}
     </UserContext.Provider>
   );
