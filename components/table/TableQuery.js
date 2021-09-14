@@ -36,7 +36,6 @@ const TableQuery = () => {
 
   return (
     <>
-      <NatSelector natValue={natValue} setNatValue={setNatValue} />
       <TableInstance tableData={tableData} />
       <button onClick={() => setSize(size + 1)}>Load More</button>
     </>

@@ -1,4 +1,5 @@
 import React from "react";
+import NatSelector from "../nat-selector/NatSelector";
 
 const TableLayout = ({
   getTableProps,
@@ -10,7 +11,8 @@ const TableLayout = ({
 }) => {
   return (
     <>
-      <table {...getTableProps()}>
+      <NatSelector />
+      <table {...getTableProps()} id="users-table">
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 import { OPTIONS } from "./NatOptions";
 
-const NatSelector = ({ natValue, setNatValue }) => {
+const NatSelector = () => {
+  const { natValue, setNatValue } = useContext(UserContext);
   return (
     <label htmlFor="nat">
       NAT:{" "}
