@@ -1,11 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Modal from "react-modal";
 import useSWR from "swr";
 
-import { UserContext, UserProvider } from "../../context/userContext";
 import UserModal from "../../components/UserModal";
-import { useGetUsers } from "../../hooks/useRequest";
 
 import { fetcher } from "../../helpers";
 

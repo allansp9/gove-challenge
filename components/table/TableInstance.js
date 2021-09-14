@@ -1,14 +1,17 @@
 import { useContext, useMemo } from "react";
 import Link from "next/link";
-import { useGlobalFilter, useTable, useSortBy, useFilters } from "react-table";
+import { useTable, useSortBy, useFilters } from "react-table";
 import { format } from "date-fns";
 
 import TableLayout from "./TableLayout";
 import { DefaultColumnFilter, SelectColumnFilter } from "./TableFilters";
-import { UserContext } from "../../context/userContext";
+import { TableContext } from "../../context/tableContext";
+import SeeDetailsButton from "../SeeDetailsButton";
 
-const TableInstance = ({ tableData }) => {
-  const { natValue } = useContext(UserContext);
+const TableInstance = () => {
+  const { natValue, tableData } = useContext(TableContext);
+
+  if (!tableData) return <div>Loading...</div>;
 
   const [columns, data] = useMemo(() => {
     const columns = [
@@ -28,9 +31,10 @@ const TableInstance = ({ tableData }) => {
         Cell: ({ value }) => format(new Date(value), "dd/MM/yyyy"),
       },
       {
-        Header: "Action",
+        Header: "",
         disableFilters: true,
         disableSortBy: true,
+        accessor: "action",
         Cell: ({ row }) => (
           <Link
             href={`/user/[userId]${natValue && `?nat=${row.original.nat}`}`}
@@ -39,20 +43,7 @@ const TableInstance = ({ tableData }) => {
             }`}
             passHref
           >
-            <button className="w-full">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
+            <SeeDetailsButton />
           </Link>
         ),
       },

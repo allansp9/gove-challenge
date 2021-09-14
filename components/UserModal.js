@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Modal from "react-modal";
 import CopyUrlButton from "./CopyUrlButton";
-import { UserContext } from "../context/userContext";
 
 Modal.setAppElement("#__next");
 

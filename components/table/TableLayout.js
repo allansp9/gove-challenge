@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TableContext } from "../../context/tableContext";
 import NatSelector from "../nat-selector/NatSelector";
 
 const TableLayout = ({
@@ -7,8 +8,8 @@ const TableLayout = ({
   headerGroups,
   rows,
   prepareRow,
-  state,
 }) => {
+  const { size, setSize } = useContext(TableContext);
   return (
     <>
       <NatSelector />
@@ -23,7 +24,7 @@ const TableLayout = ({
                   >
                     {column.render("Header")}
                   </div>
-                  <div>{column.canFilter ? column.render("Filter") : null}</div>
+                  <div>{column.canFilter && column.render("Filter")}</div>
                 </th>
               ))}
             </tr>
@@ -44,6 +45,8 @@ const TableLayout = ({
           })}
         </tbody>
       </table>
+
+      <button onClick={() => setSize(size + 1)}>Load More</button>
     </>
   );
 };

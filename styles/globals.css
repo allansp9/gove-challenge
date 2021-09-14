@@ -5,12 +5,12 @@
 
 @layer utilities {
   #users-table {
-    @apply border-separate table-fixed;
+    @apply border-separate w-full;
   }
 
   #users-table td,
   #users-table th {
-    @apply border border-gray-300;
+    @apply border border-gray-300 text-left pl-2;
   }
 
   #users-table tr:nth-child(even) {

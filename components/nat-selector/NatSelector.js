@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { UserContext } from "../../context/userContext";
+import { TableContext } from "../../context/tableContext";
 import { OPTIONS } from "./NatOptions";
 
 const NatSelector = () => {
-  const { natValue, setNatValue } = useContext(UserContext);
+  const { natValue, setNatValue } = useContext(TableContext);
   return (
     <label htmlFor="nat">
       NAT:{" "}

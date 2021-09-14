@@ -1,6 +1,5 @@
 import Head from "next/head";
-
-import TableQuery from "../components/table/TableQuery";
+import TableInstance from "../components/table/TableInstance";
 
 export default function Home() {
   return (
@@ -10,7 +9,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <TableQuery />
+      <TableInstance />
     </div>
   );
 }

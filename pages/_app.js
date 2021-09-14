@@ -1,12 +1,12 @@
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
-import { UserProvider } from "../context/userContext";
+import { TableDataProvider } from "../context/tableContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <UserProvider>
+    <TableDataProvider>
       <Component {...pageProps} />
-    </UserProvider>
+    </TableDataProvider>
   );
 }
 
