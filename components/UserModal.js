@@ -4,6 +4,7 @@ import Image from "next/image";
 import Modal from "react-modal";
 import CopyUrlButton from "./buttons/CopyUrlButton";
 import { format } from "date-fns";
+import Navbar from "./Navbar";
 
 Modal.setAppElement("#__next");
 

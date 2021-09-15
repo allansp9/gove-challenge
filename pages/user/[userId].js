@@ -6,6 +6,7 @@ import useSWR from "swr";
 import UserModal from "../../components/UserModal";
 
 import { fetcher } from "../../helpers";
+import Navbar from "../../components/Navbar";
 
 Modal.setAppElement("#__next");
 
@@ -37,7 +38,11 @@ const UserPage = () => {
 
   if (!userInfo) return <div>Loading...</div>;
 
-  return <UserModal userInfo={userInfo} />;
+  return (
+    <>
+      <UserModal userInfo={userInfo} />
+    </>
+  );
 };
 
 export default UserPage;

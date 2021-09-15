@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className="container m-auto">
+      <main className="container m-auto pt-[20px]">
         <NatSelector />
 
         <TableQuery />
