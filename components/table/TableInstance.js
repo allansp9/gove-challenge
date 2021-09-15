@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { useTable, useSortBy, useFilters } from "react-table";
 import { format } from "date-fns";
 import Link from "next/link";
