@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Modal from "react-modal";
-import CopyUrlButton from "./CopyUrlButton";
+import CopyUrlButton from "./buttons/CopyUrlButton";
 
 Modal.setAppElement("#__next");
 

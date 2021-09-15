@@ -5,11 +5,14 @@
 
 @layer utilities {
   #users-table {
-    @apply border-separate w-full;
+    @apply border-separate;
   }
 
-  #users-table td,
-  #users-table th {
+  #users-table tbody {
+    @apply pt-[200px];
+  }
+
+  #users-table td {
     @apply border border-gray-300 text-left pl-2;
   }
 
@@ -22,6 +25,11 @@
   }
 
   #users-table th {
-    @apply bg-yellow-300 p-2 align-top text-gray-700;
+    @apply bg-gray-400 p-2 align-top text-white sticky top-[2px];
+  }
+
+  #users-table select,
+  option {
+    @apply text-gray-600;
   }
 }

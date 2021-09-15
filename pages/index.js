@@ -1,15 +1,21 @@
 import Head from "next/head";
-import TableInstance from "../components/table/TableInstance";
+import LoadMoreButton from "../components/buttons/LoadMoreButton";
+import NatSelector from "../components/nat-selector/NatSelector";
+import TableQuery from "../components/table/TableQuery";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center min-h-screen py-2">
+    <div>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <main className="container m-auto">
+        <NatSelector />
 
-      <TableInstance />
+        <TableQuery />
+        <LoadMoreButton />
+      </main>
     </div>
   );
 }

@@ -22,8 +22,6 @@ const UserPage = () => {
   const absolutePageIndex = (page - 1) * 50;
   const pageIndex = userId - absolutePageIndex;
 
-  const userIndex = Math.ceil(userId / pageIndex);
-
   const { data } = useSWR(
     `https://randomuser.me/api/?results=50&seed=abc&page=${page}&${
       nat && `nat=${nat}`

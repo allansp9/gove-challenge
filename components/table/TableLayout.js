@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import { TableContext } from "../../context/tableContext";
-import NatSelector from "../nat-selector/NatSelector";
 
 const TableLayout = ({
   getTableProps,
@@ -9,11 +7,9 @@ const TableLayout = ({
   rows,
   prepareRow,
 }) => {
-  const { size, setSize } = useContext(TableContext);
   return (
-    <>
-      <NatSelector />
-      <table {...getTableProps()} id="users-table">
+    <div className="max-h-[600px] overflow-auto">
+      <table {...getTableProps()} id="users-table" className="w-full">
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -45,9 +41,7 @@ const TableLayout = ({
           })}
         </tbody>
       </table>
-
-      <button onClick={() => setSize(size + 1)}>Load More</button>
-    </>
+    </div>
   );
 };
 

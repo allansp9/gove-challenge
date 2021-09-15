@@ -1,20 +1,18 @@
-import { useContext, useMemo } from "react";
-import Link from "next/link";
+import { useContext, useEffect, useMemo } from "react";
 import { useTable, useSortBy, useFilters } from "react-table";
 import { format } from "date-fns";
+import Link from "next/link";
 
+import SeeDetailsButton from "../buttons/SeeDetailsButton";
 import TableLayout from "./TableLayout";
 import { DefaultColumnFilter, SelectColumnFilter } from "./TableFilters";
 import { TableContext } from "../../context/tableContext";
-import SeeDetailsButton from "../SeeDetailsButton";
 
-const TableInstance = () => {
-  const { natValue, tableData } = useContext(TableContext);
-
-  if (!tableData) return <div>Loading...</div>;
+const TableInstance = ({ tableData }) => {
+  const { natValue } = useContext(TableContext);
 
   const [columns, data] = useMemo(() => {
-    const columns = [
+    const tableColumns = [
       {
         Header: "Name",
         accessor: "name.first",
@@ -31,10 +29,9 @@ const TableInstance = () => {
         Cell: ({ value }) => format(new Date(value), "dd/MM/yyyy"),
       },
       {
-        Header: "",
+        Header: "Action",
         disableFilters: true,
         disableSortBy: true,
-        accessor: "action",
         Cell: ({ row }) => (
           <Link
             href={`/user/[userId]${natValue && `?nat=${row.original.nat}`}`}
@@ -48,7 +45,7 @@ const TableInstance = () => {
         ),
       },
     ];
-    return [columns, tableData];
+    return [tableColumns, tableData];
   }, [tableData]);
 
   const defaultColumn = useMemo(
@@ -64,7 +61,7 @@ const TableInstance = () => {
     useSortBy
   );
 
-  return <TableLayout {...tableInstance} />;
+  return <TableLayout {...tableInstance}></TableLayout>;
 };
 
 export default TableInstance;

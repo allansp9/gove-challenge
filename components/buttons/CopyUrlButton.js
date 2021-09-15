@@ -1,4 +1,4 @@
-import useCopyToClipboard from "../hooks/useCopyToClipboard";
+import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
 const CopyUrlButton = ({ url }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(url);

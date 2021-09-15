@@ -3,7 +3,7 @@ import React from "react";
 const SeeDetailsButton = React.forwardRef(({ onClick, href }, ref) => {
   return (
     <a href={href} onClick={onClick} ref={ref}>
-      <button className="w-full flex justify-center px-4">
+      <button className="w-full flex justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
