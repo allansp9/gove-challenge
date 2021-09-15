@@ -4,14 +4,14 @@ Referencia: https://lab.coodesh.com/allansp9/front-end-challenge-2021?utm_source
 
 Live Demo: [https://gove-challenge.vercel.app/](https://gove-challenge.vercel.app/)
 
-### Main Technologies
+## Main Technologies
 
-React with NextJS
-TailwindCSS
-SWR
-React-Table
+- React with NextJS
+- TailwindCSS
+- SWR
+- React-Table
 
-### Getting Started
+## Getting Started
 
 Install dependencies:
 
