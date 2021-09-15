@@ -1,5 +1,6 @@
 import Head from "next/head";
 import NatSelector from "../components/nat-selector/NatSelector";
+import Navbar from "../components/Navbar";
 import TableQuery from "../components/table/TableQuery";
 
 export default function Home() {
@@ -9,7 +10,8 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="container m-auto">
+      <Navbar />
+      <main className="container m-auto pt-[30px]">
         <NatSelector />
 
         <TableQuery />

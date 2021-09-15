@@ -32,6 +32,10 @@
     @apply bg-gray-400 p-2 align-top text-white sticky top-[2px];
   }
 
+  #users-table th input {
+    @apply text-gray-800;
+  }
+
   #users-table select,
   option {
     @apply text-gray-600;

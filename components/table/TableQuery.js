@@ -29,7 +29,7 @@ const TableQuery = () => {
   }, [data]);
 
   return (
-    <div className="max-h-[600px] overflow-auto flex flex-col items-center space-y-5 mt-10">
+    <div className="max-h-[600px] overflow-auto flex flex-col items-center space-y-5">
       {!tableData ? (
         <TableSkeleton />
       ) : (
