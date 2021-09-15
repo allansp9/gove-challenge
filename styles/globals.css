@@ -28,7 +28,7 @@
 
   #users-table th,
   .table-skeleton th {
-    @apply bg-gray-400 p-2 align-top text-white sticky top-[0px];
+    @apply bg-gray-400 p-2 align-top text-white sticky top-0;
   }
 
   #users-table th :is(input, select, option) {

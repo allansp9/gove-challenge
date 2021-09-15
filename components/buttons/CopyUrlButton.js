@@ -2,15 +2,19 @@ import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
 const CopyUrlButton = ({ url }) => {
   const [copyUrlStatus, copyUrl] = useCopyToClipboard(url);
-  let buttonText = "Copy to Clipboard";
+  let buttonText = "Copy URL to Clipboard";
 
   if (copyUrlStatus === "copied") {
-    buttonText = "Copied!";
+    buttonText = "URL Copied!";
   } else if (copyUrlStatus === "failed") {
     buttonText = "Copy failed!";
   }
 
-  return <button onClick={copyUrl}>{buttonText}</button>;
+  return (
+    <button onClick={copyUrl} className="">
+      {buttonText}
+    </button>
+  );
 };
 
 export default CopyUrlButton;
