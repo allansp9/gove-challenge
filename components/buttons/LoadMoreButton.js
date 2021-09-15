@@ -16,7 +16,7 @@ const LoadMoreButton = () => {
   return (
     <button
       onClick={() => setSize(size + 1)}
-      className="border w-[150px] px-4 py-2 my-6 bg-gray-500 text-white hover:bg-gray-700 active:bg-gray-900"
+      className="w-[150px] px-4 py-2 my-6 bg-gray-500 text-white hover:bg-gray-700 active:bg-gray-900"
     >
       Load More
     </button>

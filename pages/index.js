@@ -1,5 +1,4 @@
 import Head from "next/head";
-import LoadMoreButton from "../components/buttons/LoadMoreButton";
 import NatSelector from "../components/nat-selector/NatSelector";
 import TableQuery from "../components/table/TableQuery";
 
@@ -14,7 +13,6 @@ export default function Home() {
         <NatSelector />
 
         <TableQuery />
-        <LoadMoreButton />
       </main>
     </div>
   );

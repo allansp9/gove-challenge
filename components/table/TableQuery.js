@@ -3,7 +3,9 @@ import useSWRInfinite from "swr/infinite";
 
 import { TableContext } from "../../context/tableContext";
 import { fetcher } from "../../helpers";
+import LoadMoreButton from "../buttons/LoadMoreButton";
 import TableInstance from "./TableInstance";
+import TableSkeleton from "./TableSkeleton";
 
 const TableQuery = () => {
   const [tableData, setTableData] = useState(null);
@@ -26,11 +28,18 @@ const TableQuery = () => {
     }
   }, [data]);
 
-  if (!data || !tableData) {
-    return <div>Loading...</div>;
-  }
-
-  return <TableInstance tableData={tableData} />;
+  return (
+    <div className="max-h-[600px] overflow-auto flex flex-col items-center space-y-5 mt-10">
+      {!tableData ? (
+        <TableSkeleton />
+      ) : (
+        <>
+          <TableInstance tableData={tableData} />
+          <LoadMoreButton />
+        </>
+      )}
+    </div>
+  );
 };
 
 export default TableQuery;
