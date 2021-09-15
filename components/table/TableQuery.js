@@ -12,7 +12,7 @@ const TableQuery = () => {
 
   const { natValue } = useContext(TableContext);
 
-  const { data } = useSWRInfinite(
+  const { data, size, setSize } = useSWRInfinite(
     (index) =>
       `https://randomuser.me/api/?results=50&seed=abc&page=${
         index + 1
@@ -29,13 +29,13 @@ const TableQuery = () => {
   }, [data]);
 
   return (
-    <div className="max-h-[600px] overflow-auto flex flex-col items-center space-y-5">
+    <div className="max-h-[600px] pb-5 overflow-auto flex flex-col items-center space-y-5 border border-gray-300">
       {!tableData ? (
         <TableSkeleton />
       ) : (
         <>
           <TableInstance tableData={tableData} />
-          <LoadMoreButton />
+          <LoadMoreButton data={data} size={size} setSize={setSize} />
         </>
       )}
     </div>
