@@ -4,7 +4,7 @@ Referencia: https://lab.coodesh.com/allansp9/front-end-challenge-2021?utm_source
 
 Live Demo: [https://gove-challenge.vercel.app/](https://gove-challenge.vercel.app/)
 
-### Main techonologies
+### Main Technologies
 
 React with NextJS
 TailwindCSS
