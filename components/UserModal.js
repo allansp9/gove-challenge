@@ -54,14 +54,16 @@ const UserModal = ({ userInfo }) => {
             <br />
             Nat: {userInfo.nat}
             <br />
-            {userInfo.location.street.name}, {userInfo.location.street.number}
+            Street: {userInfo.location.street.name},{" "}
+            {userInfo.location.street.number}
             <br />
-            {userInfo.location.city} - {userInfo.location.state} /{" "}
-            {userInfo.location.country}
+            City/State: {userInfo.location.city} / {userInfo.location.state}
+            <br />
+            Country: {userInfo.location.country}
             <br />
             ID: {userId}
           </adress>
-          <span className="ml-5 mt-2 mb-8 flex space-x-2">
+          <span className="mt-2 mb-8 flex space-x-2 self-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
