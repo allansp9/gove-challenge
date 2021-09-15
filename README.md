@@ -35,3 +35,18 @@ To create a optimized production Build run:
 npm run build
 npm run start
 ```
+
+## Running with Docker
+
+<br>
+Build the image:
+
+```bash
+docker build . -t gove-challenge
+```
+
+Run:
+
+```bash
+docker run -e PORT=3000 gove-challenge
+```
